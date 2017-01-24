@@ -5,7 +5,7 @@
 
 # Init
 
-    Edit `SPARK_IMAGE` in Makefile
+Edit `SPARK_IMAGE` in Makefile to reflect your private registry
 
 # Build
 
