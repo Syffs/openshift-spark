@@ -1,12 +1,13 @@
-LOCAL_IMAGE=openshift-spark
-SPARK_IMAGE=mattf/openshift-spark
+# https://github.com/radanalyticsio/openshift-spark
+LOCAL_IMAGE=spark
+#SPARK_IMAGE=mattf/openshift-spark
 
 # If you're pushing to an integrated registry
 # in Openshift, SPARK_IMAGE will look something like this
 
-# SPARK_IMAGE=172.30.242.71:5000/myproject/openshift-spark
+SPARK_IMAGE=192.168.1.5:5001/test/${LOCAL_IMAGE}
 
-.PHONY: build clean push create destroy
+all: build push
 
 build:
 	docker build -t $(LOCAL_IMAGE) .

@@ -2,14 +2,17 @@ FROM centos:latest
 
 MAINTAINER Matthew Farrellee <matt@cs.wisc.edu>
 
+ENV SPARK_VERSION 1.6.3
+ENV HADOOP_BRANCH 2.6
+
 USER root
 RUN yum install -y epel-release tar java && \
     yum clean all
 
 RUN cd /opt && \
-    curl https://dist.apache.org/repos/dist/release/spark/spark-2.0.1/spark-2.0.1-bin-hadoop2.7.tgz | \
+    curl https://dist.apache.org/repos/dist/release/spark/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}-bin-hadoop${HADOOP_BRANCH}.tgz | \
         tar -zx && \
-    ln -s spark-2.0.1-bin-hadoop2.7 spark
+    ln -s spark-${SPARK_VERSION}-bin-hadoop${HADOOP_BRANCH} spark
 
 # when the containers are not run w/ uid 0, the uid may not map in
 # /etc/passwd and it may not be possible to modify things like

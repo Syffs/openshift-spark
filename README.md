@@ -3,10 +3,20 @@
 
 # Apache Spark images for OpenShift
 
+# Init
+
+    Edit `SPARK_IMAGE` in Makefile
+
 # Build
 
-    make
+    make build
 
 # Push
 
-    make push REPO=[REGISTRY_HOST/][USERNAME]
+    make push
+
+# Test on Openshift cluster
+
+    oc login <...>
+    make create
+
